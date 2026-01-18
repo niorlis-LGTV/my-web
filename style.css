@@ -252,8 +252,8 @@ aside a:link, aside a:visited, aside a:active {
 }
 
 .updates-content {
-    height: 120px; /* กำหนดความสูงของช่อง */
-    overflow-y: scroll; /* ทำให้เลื่อนแนวตั้งได้ */
+    height: 120px; 
+    overflow-y: scroll; 
     padding: 8px;
     font-size: 10px;
     color: #ccc;
@@ -271,7 +271,7 @@ aside a:link, aside a:visited, aside a:active {
     margin: 8px 0;
 }
 
-/* ปรับแต่ง Scrollbar ในช่อง Updates */
+
 .updates-content::-webkit-scrollbar {
     width: 6px;
 }
@@ -316,20 +316,20 @@ aside a:link, aside a:visited, aside a:active {
 
 .barslide {
     background: #000;
-    color: #ff0000; /* สีแดงสด */
+    color: #ff0000; 
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace; /* ฟอนต์แบบเครื่องจักร */
+    font-family: 'Courier New', Courier, monospace; 
     font-size: 14px;
     padding: 5px 0;
     border-top: 2px solid darkred;
     border-bottom: 2px solid darkred;
-    text-shadow: 2px 2px 5px #ff0000, 0 0 10px #8b0000; /* เอฟเฟกต์เรืองแสง */
+    text-shadow: 2px 2px 5px #ff0000, 0 0 10px #8b0000;
     letter-spacing: 2px;
     margin: 10px 0;
-    box-shadow: inset 0 0 10px #ff0000; /* เงาสีแดงด้านในกล่อง */
+    box-shadow: inset 0 0 10px #ff0000;
 }
 
-/* ทำให้ marquee ดูสมูทขึ้น */
+
 .barslide marquee {
     text-transform: uppercase;
 }
@@ -345,33 +345,33 @@ aside a:link, aside a:visited, aside a:active {
 }
 
 
-/* ตั้งค่า Container ให้รองรับของที่ลอยออกมา */
+
 .container {
     position: relative;
-    overflow: visible; /* สำคัญมาก: เพื่อให้มองเห็นของที่ลอยออกนอกกล่อง */
+    overflow: visible; 
 }
 
-/* ตั้งค่าพื้นฐานสำหรับพื้นที่ด้านข้าง */
+
 .side-space {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    width: 180px;      /* ความกว้างพื้นที่ที่คุณต้องการ */
-    min-height: 100px; /* ความสูงขั้นต่ำ */
+    width: 180px;      
+    min-height: 100px; 
     z-index: 999;
     transition: all 0.3s ease;
     border-radius: 20px
 }
 
-/* ตำแหน่งด้านซ้าย */
+
 .side-space.left {
-    left: calc(50% - 350px - 220px ); /* 350px คือครึ่งหนึ่งของกล่องเว็บ + 200px คือระยะห่างออกไป */
+    left: calc(50% - 350px - 220px ); 
     text-align: right;
 }
 
-/* ตำแหน่งด้านขวา */
+
 .side-space.right {
-    left: calc(50% + 350px + 20px); /* 350px คือครึ่งหนึ่งของกล่องเว็บ + 20px คือระยะห่างออกไป */
+    left: calc(50% + 350px + 20px); 
     text-align: left;
 }
 
@@ -382,7 +382,7 @@ aside a:link, aside a:visited, aside a:active {
     50% { transform: translateY(-10px); }
 }
 
-/* ซ่อนพื้นที่ด้านข้างเมื่อจอแคบเกินไป เพื่อไม่ให้ทับเนื้อหา */
+
 @media (max-width: 1150px) {
     .side-space {
         display: none;
@@ -390,26 +390,26 @@ aside a:link, aside a:visited, aside a:active {
 }
 
 .side-gif {
-    /* ปรับเป็นเปอร์เซ็นต์เพื่อให้เล็กกว่ากล่องเสมอ (เช่น 80% ของความกว้างกล่อง) */
+   
     width: 80%; 
     height: auto;
     
-    /* จัดกึ่งกลาง */
+  
     display: block;
     margin: 0 auto;
     
-    /* เพิ่มลูกเล่นให้เข้ากับธีม */
+    
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-    border-radius: 10px; /* ถ้าอยากให้ GIF ขอบมนด้วย */
+    border-radius: 10px; 
 }
 
-/* ตั้งค่าให้กล่องแม่ (side-space) จัดของข้างในให้อยู่ตรงกลาง */
+
 .side-space {
     display: flex;
-    flex-direction: column; /* เรียงจากบนลงล่าง */
-    justify-content: center; /* จัดกลางแนวตั้ง */
-    align-items: center;    /* จัดกลางแนวนอน */
-    padding: 10px;          /* เพิ่มช่องว่างขอบด้านใน */
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;    
+    padding: 10px;          
 }
 
 
@@ -427,56 +427,56 @@ aside a:link, aside a:visited, aside a:active {
 
 
 
-/* กล่องควบคุมการมองเห็น (ช่องหน้าต่าง) */
+
 .gif-slider {
     width: 100%;
-    overflow: hidden; /* ซ่อน GIF ที่ล้นออกนอกจอ */
+    overflow: hidden; 
     padding: 0px 0;
 }
 
-/* แถบที่วิ่งจริงๆ */
+
 .gif-track {
     display: flex;
-    gap: 10px; /* ระยะห่างระหว่าง GIF */
-    width: max-content; /* ให้ความกว้างยืดตามจำนวนรูป */
-    animation: scroll-left 20s linear infinite; /* ปรับ 20s ให้เร็วหรือช้าตามใจชอบ */
+    gap: 10px; 
+    width: max-content; 
+    animation: scroll-left 20s linear infinite; 
 }
 
-/* ล็อคขนาด GIF ไม่ให้ใหญ่เกินไป */
+
 .gif-track img {
-    max-height: 20px; /* ล็อคความสูงสูงสุด */
-    width: auto;      /* ให้ความกว้างปรับตามอัตราส่วนรูป */
+    max-height: 20px;
+    width: auto;    
     transition: transform 0.2s;
 }
 
 
-/* คำสั่งทำให้มันวิ่งซ้ายไปขวา */
+
 @keyframes scroll-left {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* วิ่งไปครึ่งทางของความกว้างทั้งหมด */
+    100% { transform: translateX(-50%); }
 }
 
-/* ตั้งค่าพื้นฐานให้แถบ Layout */
+
 .border-overlay {
     position: fixed;
     left: 0;
     width: 100%;
-    height: 80px; /* ปรับความสูงตามขนาดรูปภาพไฟของคุณ */
-    z-index: 9999; /* ให้ลอยทับทุกอย่างบนเว็บ */
-    pointer-events: none; /* เพื่อให้เรายังคลิกเมนูหรือปุ่มที่อยู่ใต้รูปได้ */
-    background-repeat: repeat-x; /* ให้รูปเรียงต่อกันในแนวนอน */
+    height: 80px; 
+    z-index: 9999; 
+    pointer-events: none; 
+    background-repeat: repeat-x; 
     background-size: contain;
 }
 
 
 
-/* คลาสรวมสำหรับไฟบน-ล่าง */
+
 .border-overlay {
     position: fixed;
-    left: 50%; /* ย้ายมาไว้กึ่งกลางจอ */
-    transform: translateX(-50%); /* ดึงกลับมาครึ่งหนึ่งเพื่อให้กึ่งกลางเป๊ะ */
-    width: 100vw; /* ให้ความกว้างเต็มหน้าจอ */
-    height: 100px; /* ปรับความสูงตามรูปไฟของคุณ */
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100vw;
+    height: 100px; 
     background-repeat: repeat-x;
     background-size: contain;
     z-index: 10000;
@@ -485,15 +485,16 @@ aside a:link, aside a:visited, aside a:active {
 
 
 .bottom-border {
-    bottom: 0; /* ชิดขอบล่าง */
+    bottom: 0;
     background-image: url('https://blob.gifcities.org/gifcities/SPZPIX6ZU2MZHMFGHF2O2ZP4ZGLYYXXS.gif');
-    background-position: bottom; /* ยึดรูปจากด้านล่าง */
+    background-position: bottom; 
 }
 
 
 
 
-/* ตู้โชว์ */
+
+
 .art-cabinet {
     margin-top: 30px;
     background: #0d0d0d;
@@ -511,14 +512,14 @@ aside a:link, aside a:visited, aside a:active {
     text-shadow: 0 0 5px red;
 }
 
-/* ตารางวางรูป */
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* ปรับขนาดช่องตามความเหมาะสม */
     gap: 15px;
 }
 
-/* ช่องเก็บรูปแต่ละช่อง */
+
 .art-slot {
     aspect-ratio: 1/1;
     border: 5px solid #333;
@@ -534,12 +535,12 @@ aside a:link, aside a:visited, aside a:active {
 .art-slot img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ให้รูปพอดีช่อง */
+    object-fit: cover; 
     filter: grayscale(0.5);
     transition: all 0.3s ease;
 }
 
-/* ตอนเอาเมาส์จ่อ (Hover) */
+
 .art-slot:hover {
     transform: scale(1.05);
     border-color: red;
@@ -551,9 +552,9 @@ aside a:link, aside a:visited, aside a:active {
     filter: grayscale(0) brightness(1.2);
 }
 
-/* หน้าต่าง Modal (ตอนกดรูป) */
+
 .modal {
-    display: none; /* ซ่อนไว้ก่อน */
+    display: none; 
     position: fixed;
     z-index: 99999;
     left: 0;
@@ -586,9 +587,9 @@ aside a:link, aside a:visited, aside a:active {
 
  #resultImg {
     display: block ;
-    width: 300px ;  /* กำหนดขนาดที่แน่นอน */
+    width: 300px ; 
     height: auto ;
-    min-height: 200px;        /* จองพื้นที่ไว้ */
+    min-height: 200px;   
     margin: 15px auto;
     border: 3px solid white;
     object-fit: contain;
@@ -600,19 +601,19 @@ aside a:link, aside a:visited, aside a:active {
 
 
 .gacha-section {
-    padding: 15px;      /* ระยะห่างจากขอบกล่องหลัก */
-    margin-top: 30px;   /* ห่างจากชั้นวางรูปด้านบน */
+    padding: 15px;    
+    margin-top: 30px;   
 }
 
 .gacha-row {
-    display: flex;         /* จัดวางแบบแนวนอน */
-    gap: 15px;            /* ระยะห่างระหว่างกาชากับโปสเตอร์ (ให้เท่ากับ gap ของ gallery-grid) */
-    margin-top: 30px;     /* ระยะห่างจากชั้นวางรูปข้างบน */
-    align-items: stretch; /* บังคับให้ความสูงเท่ากัน */
+    display: flex;        
+    gap: 15px;            
+    margin-top: 30px;    
+    align-items: stretch; 
 }
 .gacha-box {
-    flex: 2;            /* ให้กาชากว้างกว่าโปสเตอร์ (ปรับตัวเลขได้) */
-    aspect-ratio: 4 / 3; /* บังคับสัดส่วนกาชาให้เป็น 4:3 เสมอ */
+    flex: 2;            
+    aspect-ratio: 4 / 3; 
     position: relative;
     border: 3px solid darkred;
     background: #000;
@@ -639,7 +640,7 @@ aside a:link, aside a:visited, aside a:active {
 
 
 
-/* สลับรูปตอน Hover */
+
 
 .state-hover, .gacha-video {
 
@@ -655,7 +656,7 @@ aside a:link, aside a:visited, aside a:active {
 
 
 
-/* หน้าจอผลลัพธ์ */
+
 
 .result-modal {
 
@@ -707,7 +708,7 @@ aside a:link, aside a:visited, aside a:active {
 
 
 
-/* สีตามระดับความหายาก */
+
 
 .rarity-tag {
 
@@ -757,12 +758,12 @@ aside a:link, aside a:visited, aside a:active {
 
 .gacha-wrapper {
     display: flex;
-    gap: 15px;          /* ช่องไฟระหว่างกาชากับโปสเตอร์ */
-    align-items: stretch; /* บังคับให้ลูกทุกตัวสูงเท่ากัน */
+    gap: 15px;          
+    align-items: stretch; 
 }
 
 .gacha-poster {
-    flex: 1;            /* ความกว้างที่เหลือจะเป็นของโปสเตอร์ */
+    flex: 1;           
     border: 3px solid darkred;
     background: #000;
     overflow: hidden;
@@ -771,11 +772,11 @@ aside a:link, aside a:visited, aside a:active {
 .gacha-poster img {
     width: 100%;
     height: 100%;
-    object-fit: cover;    /* ให้รูปเต็มกรอบพอดี */
+    object-fit: cover;   
     display: block;
 }
 
-/* ปรับ gacha-container เดิมเล็กน้อยเพื่อความสะอาด */
+
 .gacha-container {
     width: 100%;
     box-sizing: border-box;

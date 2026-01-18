@@ -50,9 +50,6 @@ function rollGacha() {
 
     const box = document.getElementById('gachaBox');
 
-    
-
-    // 1. เล่นวิดีโออนิเมชั่น
 
     video.style.display = 'block';
 
@@ -60,11 +57,9 @@ function rollGacha() {
 
 
 
-    // 2. เมื่อวิดีโอจบ ให้สุ่มรูป
-
     video.onended = function() {
 
-        const rand = Math.random() * 100; // สุ่ม 0-100
+        const rand = Math.random() * 1000; 
 
         let rarity = '';
 
@@ -72,13 +67,13 @@ function rollGacha() {
 
 
 
-        if (rand < 2) { rarity = 'god'; colorClass = 'god'; }        // 1%
+        if (rand < 2) { rarity = 'god'; colorClass = 'god'; }       
 
-        else if (rand < 10) { rarity = 'legendary'; colorClass = 'legendary'; } // 9%
+        else if (rand < 100) { rarity = 'legendary'; colorClass = 'legendary'; } 
 
-        else if (rand < 40) { rarity = 'epic'; colorClass = 'epic'; } // 30%
+        else if (rand < 450) { rarity = 'epic'; colorClass = 'epic'; } 
 
-        else { rarity = 'rare'; colorClass = 'rare'; }               // 60%
+        else { rarity = 'rare'; colorClass = 'rare'; }               
 
 
 
@@ -87,8 +82,6 @@ function rollGacha() {
         const finalImg = pool[Math.floor(Math.random() * pool.length)];
 
 
-
-        // แสดงผลใน Modal
 
         document.getElementById('resultImg').src = finalImg;
 
@@ -100,8 +93,7 @@ function rollGacha() {
 
         
 
-        // Reset วิดีโอ
-
+    
         video.style.display = 'none';
 
         video.currentTime = 0;
