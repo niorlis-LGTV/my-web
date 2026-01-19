@@ -585,14 +585,18 @@ aside a:link, aside a:visited, aside a:active {
     cursor: pointer;
 }
 
- #resultImg {
-    display: block ;
-    width: 300px ; 
-    height: auto ;
-    min-height: 200px;   
-    margin: 15px auto;
-    border: 3px solid white;
+#resultImg {
+    width: auto;
+    height: auto;
+
+
+    max-width: min(90vw, 800px);
+    max-height: min(85vh, 800px);
+
     object-fit: contain;
+    z-index: 2;
+
+    animation: zoomIn 0.45s ease-out;
 }
 
 
@@ -668,7 +672,9 @@ aside a:link, aside a:visited, aside a:active {
 
     top: 0; left: 0;
 
-    width: 100%; height: 100%;
+    width: 100vw; 
+    
+    height: 100vh;
 
     background: rgba(0,0,0,0.95);
 
@@ -681,65 +687,85 @@ aside a:link, aside a:visited, aside a:active {
 }
 
 
+.result-modal.active {
+
+    display: flex;
+
+}
+
+
 
 .result-content {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.result-art {
+    height: 85vh;         
     position: relative;
-
-    max-width: 80%;
-
-    text-align: center;
-
 }
 
-
-
-.result-content img {
-
+.result-art img {
     width: 100%;
-
-    max-width: 600px;
-
-    border: 5px solid red;
-
-    box-shadow: 0 0 30px darkred;
-
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
-
-
 
 
 
 .rarity-tag {
-
-    font-size: 24px;
-
-    font-weight: bold;
-
-    margin-bottom: 10px;
-
-    letter-spacing: 5px;
-
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-size: 32px;
+    letter-spacing: 8px;
 }
 
 
 
-.rare { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+.rare { color: #b0ffb0; text-shadow: 0 0 10px #00ff26; }
 
-.epic { color: #9000ff; text-shadow: 0 0 10px #9000ff; }
+.epic { color: #d8a5ff; text-shadow: 0 0 10px #ff0095; }
 
-.legendary { color: #ffae00; text-shadow: 0 0 20px #ffae00; }
+.legendary { color: #ffe7b3; text-shadow: 0 0 20px #f6ff00;animation: flash 1s infinite; }
 
-.god { color: #ff0040; text-shadow: 0 0 30px #ff0040; animation: flash 0.5s infinite; }
+.god { color: hsl(0, 100%, 31%); text-shadow: 0 0 30px #ff0040; animation: flash 0.5s infinite; }
+
+
+
 
 
 
 @keyframes flash { 50% { opacity: 0.5; } }
 
-
+@keyframes zoomIn {
+    from {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 .close-result {
+    position: fixed;
 
+    bottom: 40px;
+
+    z-index: 3;
+    right: 40px;
+    
+    font-size: 14px;
+
+    
     margin-top: 20px;
 
     background: darkred;
@@ -755,6 +781,36 @@ aside a:link, aside a:visited, aside a:active {
     font-family: 'Courier New', monospace;
 
 }
+
+.result-modal * {
+    border: none !important;
+    outline: none !important;
+}
+
+img.rare {
+    box-shadow: 0 0 80px #00ff00;
+}
+
+img.epic {
+    box-shadow: 0 0 100px #9000ff;
+}
+
+img.legendary {
+    box-shadow: 0 0 140px #ffae00;
+}
+
+img.god {
+    box-shadow: 0 0 200px #ff0040;
+    animation: godPulse 0.5s infinite alternate;
+}
+
+@keyframes godPulse {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.4); }
+}
+
+
+
 
 .gacha-wrapper {
     display: flex;
@@ -780,4 +836,63 @@ aside a:link, aside a:visited, aside a:active {
 .gacha-container {
     width: 100%;
     box-sizing: border-box;
+}
+
+
+
+
+
+@keyframes godFire {
+    from {
+        transform: scale(1);
+        filter:
+            drop-shadow(0 0 100px #ff0000)
+            drop-shadow(0 0 200px #ff3300);
+    }
+    to {
+        transform: scale(1.02);
+        filter:
+            drop-shadow(0 0 180px #ff2200)
+            drop-shadow(0 0 320px rgba(255,50,0,1));
+    }
+}
+
+
+
+.result-modal.god {
+    animation: screenShake 0.1s infinite;
+}
+
+@keyframes screenShake {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(2px,-2px); }
+    50% { transform: translate(-2px,2px); }
+    75% { transform: translate(2px,2px); }
+    100% { transform: translate(0,0); }
+}
+
+
+
+#resultImg.rare {
+    filter: drop-shadow(0 0 40px #00ff26);
+}
+
+#resultImg.epic {
+    filter:
+        drop-shadow(0 0 50px #9000ff)
+        drop-shadow(0 0 100px rgba(144,0,255,0.8));
+}
+
+#resultImg.legendary {
+    filter:
+        drop-shadow(0 0 80px #ffae00)
+        drop-shadow(0 0 160px rgba(255,174,0,0.9));
+}
+
+#resultImg.god {
+    animation: godFire 0.3s infinite alternate;
+    filter:
+        drop-shadow(0 0 100px #ff0033)
+        drop-shadow(0 0 220px #ff2200)
+        brightness(1.3);
 }

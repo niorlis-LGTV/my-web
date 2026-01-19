@@ -83,7 +83,12 @@ function rollGacha() {
 
 
 
-        document.getElementById('resultImg').src = finalImg;
+        const resultImg = document.getElementById('resultImg');
+
+        resultImg.className = 'result-img ' + colorClass;       
+        resultImg.src = finalImg;          
+        resultImg.classList.remove('rare','epic','legendary','god');
+        resultImg.classList.add(colorClass); 
 
         document.getElementById('rarityText').innerText = rarity.toUpperCase();
 
@@ -109,3 +114,4 @@ function closeResult() {
     document.getElementById('resultModal').style.display = 'none';
 
 }
+
